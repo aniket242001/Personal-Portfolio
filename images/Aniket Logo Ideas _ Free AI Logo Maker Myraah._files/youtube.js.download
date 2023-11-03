@@ -1,0 +1,158 @@
+  // Loads the YouTube IFrame API JavaScript code.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+// Inserts YouTube JS code into the page.
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+// onYouTubeIframeAPIReady() is called when the IFrame API is ready to go.
+function onYouTubeIframeAPIReady() {
+  	player = new YT.Player('player', {
+    	height: '600',
+      width: '1280',
+      videoId: videourl,
+      playerVars: { 'autoplay': 1, 'controls': 0, 'showinfo': 0, 'rel': 0, 'enablejsapi':1, 'wmode' : 'transparent'},
+      events : {
+     	 	'onReady' : pkOnPlayerReady,
+         'onStateChange' : pkOnPlayerStateChange
+      }
+  	});
+}
+
+function pkOnPlayerStateChange(e) {
+  	var frm = $(e.target.getIframe());
+  	if (e.data === YT.PlayerState.ENDED) {
+      if ('player' === frm.attr('id')) {
+          player.playVideo();
+      }
+  	}
+  	if (e.data === YT.PlayerState.BUFFERING) {
+      if ('player' === frm.attr('id')) {
+         e.target.setPlaybackQuality('hd720');
+		}
+  	}
+}
+function pkOnPlayerReady(e) {
+	player.mute();
+ 	e.target.setPlaybackQuality('hd720');
+}
+
+//Load a youtube pixel
+var pkEnableYoutube = function() {
+     var deferred = jQuery.Deferred();
+     var img = new Image();
+     img.onload = function() { return deferred.resolve(); };
+     img.onerror = function() { return deferred.reject(); };
+     img.src = "https://s.ytimg.com/yts/img/pixel-vfl3z5WfW.gif?"+ new Date().getTime();
+     return deferred.promise();
+};
+
+//When the video starts to load, set a timer for the video wrap to fade in
+jQuery(function($){
+	$.when(pkEnableYoutube()).done(function(){
+		setTimeout(function() {
+	 		$('.video_wrap').fadeIn();
+	 	}, 2000);
+	});
+});
+$('.ml1 .letters').each(function(){
+  $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
+});
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml1 .letter',
+    scale: [0.3,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration:2000,
+    delay: function(el, i) {
+      return 70 * (i+1)
+    }
+  }).add({
+    targets: '.ml1 .line',
+    scaleX: [0,1],
+    opacity: [0.5,1],
+    easing: "easeOutExpo",
+    duration: 700,
+    offset: '-=875',
+    delay: function(el, i, l) {
+      return 80 * (l - i);
+    }
+  }).add({
+    targets: '.ml1',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+  anime.timeline({loop: true})
+  .add({
+    targets: '.ml8 .circle-white',
+    scale: [0, 3],
+    opacity: [1, 0],
+    easing: "easeInOutExpo",
+    rotateZ: 360,
+    duration: 1100
+  }).add({
+    targets: '.ml8 .circle-container',
+    scale: [0, 1],
+    duration: 1100,
+    easing: "easeInOutExpo",
+    offset: '-=1000'
+  }).add({
+    targets: '.ml8 .circle-dark',
+    scale: [0, 1],
+    duration: 1100,
+    easing: "easeOutExpo",
+    offset: '-=600'
+  }).add({
+    targets: '.ml8 .letters-left',
+    scale: [0, 1],
+    duration: 1200,
+    offset: '-=550'
+  }).add({
+    targets: '.ml8 .bang',
+    scale: [0, 1],
+    rotateZ: [45, 15],
+    duration: 1200,
+    offset: '-=1000'
+  }).add({
+    targets: '.ml8',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1400
+  });
+
+anime({
+  targets: '.ml8 .circle-dark-dashed',
+  rotateZ: 360,
+  duration: 8000,
+  easing: "linear",
+  loop: true
+});
+ window.onload=function(){
+     
+    
+	$j(window).on("click", ".small", function() {
+	
+    me = this;
+    setTimeout( function() { $j(me).addClass("big"); }, 1 );
+    
+    TweenMax.staggerFrom(".secondtween", 0.5, {opacity:0.5,scale:2, delay:0, ease:Elastic.easeOut}, 0.1);
+    TweenMax.staggerFrom(".mysocial", 0.5, {opacity:0.5, delay:0.5, ease:Elastic.easeOut}, 0.1);
+	});
+
+	$j(window).on("click", ".close", function() {
+	
+    me = this;
+   
+    setTimeout( function() { $j('.big').removeClass("big"); }, 1 );
+	});
+
+
+    }

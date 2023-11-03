@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f04ab57daa.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <div class="port"><h1>Aniket's Portfolio</h1></div>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Web Developer</p>
+                <h1>Hi, I'm <span>Aniket</span> </h1>
+            </div>
+        </div>
+    </div>
+    <!----------about--------->
+    <div id="about">
+        <div class="conatiner">
+            <div class="row">
+                <div class="about-col-1">
+                <img src="images/user.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="subtitle">About Me</h1>
+                <p>Hi my name is Aniket Kumar and i am a passionate web developer i have pursued my Btech in Electronics and communication engineering form GGSIPU. I have a good understanding of some programming languages like HTML, CSS, JAVA, JAVASCRIPT, C++, OOPS etc. By using my programming skills is have made some projects based on it. You can check my work under the My Projects section. For any queries requarding me you can contact me by fiiling the foem mentioned at last of the page. I have mentioned some of my social links like github, linkedin etc. You can contact me there also.  </p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('education')">Education</p>
+                    <p class="tab-links" onclick="opentab('skills')">Skills</p>
+                </div>
+                <div class="tab-contents active-tab" id="education">
+                    <ul>
+                        <li> <span>Secondary School(2016-2017)</span><br> I have completed my Secondary School from Mata Kasturi Devi Public School with a aggregate
+                            percentage of 70. </li>
+                        <li> <span>Diploma(2017-2020)</span><br>I have completed my Secondary School from Mata Kasturi Devi Public School with a aggregate
+                            percentage of 70.  </li>
+                        <li> <span>Bachelor of Technology(2020-2023)</span><br> I have completed my Secondary School from Mata Kasturi Devi Public School with a aggregate
+                            percentage of 70.  </li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="skills">
+                    <ul>
+                        <li> <span>HTML</span><br> I have a good understanding of HTML and mad some projects based on it. </li>
+                        <li> <span>CSS</span><br> I have a good understanding of CSS and made some projects bsde on it.  </li>
+                        <li> <span>JavaScript</span><br> I have some basic understanding pof javascript and made some projects by using it. </li>
+                        <li> <span>java</span><br> I have some basic understanding of java like OOPS concepts   </li>
+                        <li> <span>C++</span><br> I have a good understanding of C++ like loops  </li>
+                        <li> <span>Mysqli</span><br> Have a good understanding of My Sqli and made a project on CRUD Operations by using it.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+        </div>
+    </div>
+    <!----services--->
+    <div id="services">
+        <div class="container">
+            <h1 class="subtitle">My Projects</h1>
+            <div class="services-list">
+                <div>
+                    <h2>Personal Portfolio</h2>
+                <p>I have made a personal portfolio website using HTML, CSS, and JavaScript for data base i have used google sheet.</p>
+                <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <h2>CRUD Operation</h2>
+                <p>I have made website on CRUD(create, read, update, delete) Operations by using bootstrap theme for backend i have used PHP and for data base is have used My Sqli. </p>
+                <a href="https://github.com/aniket242001/CRUD-operation">Learn more</a>
+                </div>
+                <div>
+                    <h2>Code Editor</h2>
+                <p>Made a basic code editor by using HTML, CSS, JavaScript. For description of this code editor u can edit any code by using HTML, CSS, JavaScript and it gives output too. </p>
+                <a href="https://github.com/aniket242001/code-editor">Learn more</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+<!-------contact--------->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p> <i class="fa-solid fa-paper-plane"></i> iamaniket78@gmail.com</p>
+                <p> <i class="fa-solid fa-phone"></i> 9312546429</p>
+                <div class="social-icons">
+                    <a href="https://github.com/aniket242001"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/aniket-kumar-463ba7219"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://instagram.com/its_aniketkumar19?igshid=YTQwZjQ0NmI0OA== "><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="images/Aniket's Resume .pdf" download class="btn btn2">Downlaod CV</a>
+                
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Meassage" required></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>copyright &copy Aniket <i class="fa-solid fa-heart"> </i> | ALL rights reserved</p>
+    </div>
+</div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzjLmF5w_NvAeznDSC16f2XkHS-1kGEX6XFGtMiVEW5Ysa93LHO9m4SxijlYW7dTFlI/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
